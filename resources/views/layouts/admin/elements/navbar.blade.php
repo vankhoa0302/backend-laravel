@@ -1,6 +1,6 @@
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="brand">
-        <a href="{{ route('front.home.index')}}"><img src="{{ asset('admins/assets/img/logo-dark.png') }}" alt="Klorofil Logo"
+        <a href="/"><img src="{{ asset('admins/assets/img/logo-dark.png') }}" alt="Klorofil Logo"
                 class="img-responsive logo"></a>
     </div>
     <div class="container-fluid">

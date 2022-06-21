@@ -2,8 +2,9 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\{
-    CategoryController
+use App\Http\Controllers\AuthUser\{
+    LoginController,
+    RegisterController
 };
 /*
 |--------------------------------------------------------------------------
@@ -16,8 +17,12 @@ use App\Http\Controllers\Admin\{
 |
 */
 
+Route::post('user/login', [LoginController::class, 'authenticate'])
+    ->name('user.login');
+Route::post('user/register', [RegisterController::class, 'store'])
+    ->name('user.register');
 
-
-// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
+Route::middleware('auth:sanctum')->group(function () {
+    Route::post('user/logout', [LoginController::class, 'logout'])
+        ->name('user.logout');
+});
