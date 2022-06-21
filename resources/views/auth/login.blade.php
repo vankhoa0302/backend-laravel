@@ -30,9 +30,7 @@
                     <div class="left">
                         <div class="content">
                             <div class="header">
-                                <div class="logo text-center"><a href="{{route('front.home.index')}}"><img
-                                            src="{{ asset('admins/assets/img/logo-dark.png') }}"
-                                            alt="Klorofil Logo"></a></div>
+                                <div class="logo text-center"><a href="#"><img src="{{ asset('admins/assets/img/logo-dark.png') }}" alt="Klorofil Logo"></a></div>
                                 <p class="lead">Login to your account</p>
                             </div>
                             @if ($errors->any())
@@ -42,18 +40,15 @@
                                 @endforeach
                             </div>
                             @endif
-                            <form id="login-form" class="form-auth-small" action="{{ route('login.auth') }}"
-                                method="POST">
+                            <form id="login-form" class="form-auth-small" action="{{ route('login.auth') }}" method="POST">
                                 @csrf
                                 <div class="form-group">
                                     <label for="signin-email" class="control-label sr-only">Email</label>
-                                    <input type="email" class="form-control" id="signin-email" name="email"
-                                        value="{{ old('email') }}" placeholder="Email">
+                                    <input type="email" class="form-control" id="signin-email" name="email" value="{{ old('email') }}" placeholder="Email">
                                 </div>
                                 <div class="form-group">
                                     <label for="signin-password" class="control-label sr-only">Password</label>
-                                    <input type="password" class="form-control" id="signin-password" name="password"
-                                        value="{{ old('password') }}" placeholder="Password">
+                                    <input type="password" class="form-control" id="signin-password" name="password" value="{{ old('password') }}" placeholder="Password">
                                 </div>
                                 <div class="form-group clearfix">
                                     <label class="fancy-checkbox element-left">
@@ -62,8 +57,6 @@
                                     </label>
                                 </div>
                                 <button type="submit" class="btn btn-primary btn-lg btn-block">LOGIN</button>
-                                <a href="{{route('register.index')}}" type="button"
-                                    class="btn btn-success btn-lg">REGISTER</a>
                                 <div class="bottom">
                                     <span class="helper-text"><i class="fa fa-lock"></i> <a href="#">Forgot
                                             password?</a></span>
@@ -91,30 +84,30 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
 <script>
-$(document).ready(function() {
-    $('#login-form').validate({
-        rules: {
-            email: {
-                required: true,
-                email: true
-            },
-            password: {
-                required: true,
-                minlength: 6
+    $(document).ready(function() {
+        $('#login-form').validate({
+            rules: {
+                email: {
+                    required: true,
+                    email: true
+                },
+                password: {
+                    required: true,
+                    minlength: 6
+                }
             }
-        }
-    });
+        });
 
-    $('#isAdmin').change(function() {
-        if (this.checked) {
-            $('#signin-email').val('admin@gmail.com');
-            $('#signin-password').val('password');
-        } else {
-            $('#signin-email').val('');
-            $('#signin-password').val('');
-        }
+        $('#isAdmin').change(function() {
+            if (this.checked) {
+                $('#signin-email').val('admin@gmail.com');
+                $('#signin-password').val('password');
+            } else {
+                $('#signin-email').val('');
+                $('#signin-password').val('');
+            }
+        });
     });
-});
 </script>
 
 </html>
